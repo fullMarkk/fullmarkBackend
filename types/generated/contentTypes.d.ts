@@ -782,12 +782,6 @@ export interface ApiConnectUsTeamConnectUsTeam extends Schema.CollectionType {
   attributes: {
     name_worker: Attribute.String;
     work_name: Attribute.String;
-    phone_number: Attribute.Integer;
-    whatsapp_phone: Attribute.Integer;
-    email: Attribute.Email;
-    facebook_link: Attribute.String;
-    linkedin_link: Attribute.String;
-    X_link: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -806,7 +800,7 @@ export interface ApiConnectUsTeamConnectUsTeam extends Schema.CollectionType {
   };
 }
 
-export interface ApiHomeLandingHomeLanding extends Schema.CollectionType {
+export interface ApiHomeLandingHomeLanding extends Schema.SingleType {
   collectionName: 'home_landings';
   info: {
     singularName: 'home-landing';
@@ -950,6 +944,40 @@ export interface ApiServicesServices extends Schema.CollectionType {
   };
 }
 
+export interface ApiSocialContactSocialContact extends Schema.SingleType {
+  collectionName: 'social_contacts';
+  info: {
+    singularName: 'social-contact';
+    pluralName: 'social-contacts';
+    displayName: 'social_contact';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    facebook_link: Attribute.String;
+    x_link: Attribute.String;
+    phone_number: Attribute.Integer;
+    linkedin_link: Attribute.String;
+    email: Attribute.Email;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::social-contact.social-contact',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::social-contact.social-contact',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiTestimonialTestimonial extends Schema.CollectionType {
   collectionName: 'testimonials';
   info: {
@@ -1005,6 +1033,7 @@ declare module '@strapi/types' {
       'api::home-statistic.home-statistic': ApiHomeStatisticHomeStatistic;
       'api::previous-work.previous-work': ApiPreviousWorkPreviousWork;
       'api::services.services': ApiServicesServices;
+      'api::social-contact.social-contact': ApiSocialContactSocialContact;
       'api::testimonial.testimonial': ApiTestimonialTestimonial;
     }
   }

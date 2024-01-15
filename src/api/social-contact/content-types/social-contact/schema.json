@@ -1,0 +1,30 @@
+{
+  "kind": "singleType",
+  "collectionName": "social_contacts",
+  "info": {
+    "singularName": "social-contact",
+    "pluralName": "social-contacts",
+    "displayName": "social_contact"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "facebook_link": {
+      "type": "string"
+    },
+    "x_link": {
+      "type": "string"
+    },
+    "phone_number": {
+      "type": "integer"
+    },
+    "linkedin_link": {
+      "type": "string"
+    },
+    "email": {
+      "type": "email"
+    }
+  }
+}
