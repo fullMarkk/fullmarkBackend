@@ -768,6 +768,220 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
+export interface ApiConnectUsTeamConnectUsTeam extends Schema.CollectionType {
+  collectionName: 'connect_us_teams';
+  info: {
+    singularName: 'connect-us-team';
+    pluralName: 'connect-us-teams';
+    displayName: 'ConnectUs-team';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name_worker: Attribute.String;
+    work_name: Attribute.String;
+    phone_number: Attribute.Integer;
+    whatsapp_phone: Attribute.Integer;
+    email: Attribute.Email;
+    facebook_link: Attribute.String;
+    linkedin_link: Attribute.String;
+    X_link: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::connect-us-team.connect-us-team',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::connect-us-team.connect-us-team',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiHomeLandingHomeLanding extends Schema.CollectionType {
+  collectionName: 'home_landings';
+  info: {
+    singularName: 'home-landing';
+    pluralName: 'home-landings';
+    displayName: 'Home-Landing';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    description: Attribute.Text;
+    img: Attribute.Media;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::home-landing.home-landing',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::home-landing.home-landing',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiHomeStatisticHomeStatistic extends Schema.CollectionType {
+  collectionName: 'home_statistics';
+  info: {
+    singularName: 'home-statistic';
+    pluralName: 'home-statistics';
+    displayName: 'Home-Statistic';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    number: Attribute.Integer;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::home-statistic.home-statistic',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::home-statistic.home-statistic',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiPreviousWorkPreviousWork extends Schema.CollectionType {
+  collectionName: 'previous_works';
+  info: {
+    singularName: 'previous-work';
+    pluralName: 'previous-works';
+    displayName: 'previousWork';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    titleWork: Attribute.String;
+    imgWork: Attribute.Media;
+    services: Attribute.Relation<
+      'api::previous-work.previous-work',
+      'manyToMany',
+      'api::services.services'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::previous-work.previous-work',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::previous-work.previous-work',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiServicesServices extends Schema.CollectionType {
+  collectionName: 'service';
+  info: {
+    singularName: 'services';
+    pluralName: 'service';
+    displayName: 'Services';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    description: Attribute.Text;
+    adBannar: Attribute.String;
+    WhatDoWeOffer1: Attribute.Text;
+    WhatDoWeOffer2: Attribute.Text;
+    WhatDoWeOffer3: Attribute.String;
+    WhatDoWeOffer4: Attribute.String;
+    WhatDoWeOffer5: Attribute.Text;
+    previous_works: Attribute.Relation<
+      'api::services.services',
+      'manyToMany',
+      'api::previous-work.previous-work'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::services.services',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::services.services',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiTestimonialTestimonial extends Schema.CollectionType {
+  collectionName: 'testimonials';
+  info: {
+    singularName: 'testimonial';
+    pluralName: 'testimonials';
+    displayName: 'Testimonial';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    fullName: Attribute.String;
+    city: Attribute.String;
+    comment: Attribute.Text;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::testimonial.testimonial',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::testimonial.testimonial',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -786,6 +1000,12 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'api::connect-us-team.connect-us-team': ApiConnectUsTeamConnectUsTeam;
+      'api::home-landing.home-landing': ApiHomeLandingHomeLanding;
+      'api::home-statistic.home-statistic': ApiHomeStatisticHomeStatistic;
+      'api::previous-work.previous-work': ApiPreviousWorkPreviousWork;
+      'api::services.services': ApiServicesServices;
+      'api::testimonial.testimonial': ApiTestimonialTestimonial;
     }
   }
 }

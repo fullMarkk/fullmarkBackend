@@ -1,0 +1,21 @@
+{
+  "kind": "collectionType",
+  "collectionName": "home_statistics",
+  "info": {
+    "singularName": "home-statistic",
+    "pluralName": "home-statistics",
+    "displayName": "Home-Statistic"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "number": {
+      "type": "integer"
+    }
+  }
+}

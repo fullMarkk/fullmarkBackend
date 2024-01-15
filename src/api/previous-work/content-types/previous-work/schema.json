@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "previous_works",
+  "info": {
+    "singularName": "previous-work",
+    "pluralName": "previous-works",
+    "displayName": "previousWork",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "titleWork": {
+      "type": "string"
+    },
+    "imgWork": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "services": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::services.services",
+      "inversedBy": "previous_works"
+    }
+  }
+}

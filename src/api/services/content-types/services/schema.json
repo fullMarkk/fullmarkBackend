@@ -1,0 +1,46 @@
+{
+  "kind": "collectionType",
+  "collectionName": "service",
+  "info": {
+    "singularName": "services",
+    "pluralName": "service",
+    "displayName": "Services",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "adBannar": {
+      "type": "string"
+    },
+    "WhatDoWeOffer1": {
+      "type": "text"
+    },
+    "WhatDoWeOffer2": {
+      "type": "text"
+    },
+    "WhatDoWeOffer3": {
+      "type": "string"
+    },
+    "WhatDoWeOffer4": {
+      "type": "string"
+    },
+    "WhatDoWeOffer5": {
+      "type": "text"
+    },
+    "previous_works": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::previous-work.previous-work",
+      "mappedBy": "services"
+    }
+  }
+}
