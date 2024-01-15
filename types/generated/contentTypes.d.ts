@@ -950,6 +950,7 @@ export interface ApiSocialContactSocialContact extends Schema.SingleType {
     singularName: 'social-contact';
     pluralName: 'social-contacts';
     displayName: 'social_contact';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -957,7 +958,7 @@ export interface ApiSocialContactSocialContact extends Schema.SingleType {
   attributes: {
     facebook_link: Attribute.String;
     x_link: Attribute.String;
-    phone_number: Attribute.Integer;
+    phone_number: Attribute.BigInteger;
     linkedin_link: Attribute.String;
     email: Attribute.Email;
     createdAt: Attribute.DateTime;

@@ -4,7 +4,8 @@
   "info": {
     "singularName": "social-contact",
     "pluralName": "social-contacts",
-    "displayName": "social_contact"
+    "displayName": "social_contact",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -18,7 +19,7 @@
       "type": "string"
     },
     "phone_number": {
-      "type": "integer"
+      "type": "biginteger"
     },
     "linkedin_link": {
       "type": "string"
