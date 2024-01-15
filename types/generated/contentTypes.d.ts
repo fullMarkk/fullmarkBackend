@@ -800,7 +800,7 @@ export interface ApiConnectUsTeamConnectUsTeam extends Schema.CollectionType {
   };
 }
 
-export interface ApiHomeLandingHomeLanding extends Schema.SingleType {
+export interface ApiHomeLandingHomeLanding extends Schema.CollectionType {
   collectionName: 'home_landings';
   info: {
     singularName: 'home-landing';
@@ -944,7 +944,7 @@ export interface ApiServicesServices extends Schema.CollectionType {
   };
 }
 
-export interface ApiSocialContactSocialContact extends Schema.SingleType {
+export interface ApiSocialContactSocialContact extends Schema.CollectionType {
   collectionName: 'social_contacts';
   info: {
     singularName: 'social-contact';

@@ -1,5 +1,5 @@
 {
-  "kind": "singleType",
+  "kind": "collectionType",
   "collectionName": "social_contacts",
   "info": {
     "singularName": "social-contact",
