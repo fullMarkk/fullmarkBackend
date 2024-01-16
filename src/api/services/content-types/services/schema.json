@@ -28,10 +28,10 @@
       "type": "text"
     },
     "WhatDoWeOffer3": {
-      "type": "string"
+      "type": "text"
     },
     "WhatDoWeOffer4": {
-      "type": "string"
+      "type": "text"
     },
     "WhatDoWeOffer5": {
       "type": "text"

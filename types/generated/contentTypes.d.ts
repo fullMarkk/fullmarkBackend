@@ -768,6 +768,37 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
+export interface ApiAboutAbout extends Schema.CollectionType {
+  collectionName: 'abouts';
+  info: {
+    singularName: 'about';
+    pluralName: 'abouts';
+    displayName: 'About';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    About_Text: Attribute.Text;
+    About_Img: Attribute.Media & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::about.about',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::about.about',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiConnectUsTeamConnectUsTeam extends Schema.CollectionType {
   collectionName: 'connect_us_teams';
   info: {
@@ -793,39 +824,6 @@ export interface ApiConnectUsTeamConnectUsTeam extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::connect-us-team.connect-us-team',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiHomeLandingHomeLanding extends Schema.CollectionType {
-  collectionName: 'home_landings';
-  info: {
-    singularName: 'home-landing';
-    pluralName: 'home-landings';
-    displayName: 'Home-Landing';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    title: Attribute.String;
-    description: Attribute.Text;
-    img: Attribute.Media;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::home-landing.home-landing',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::home-landing.home-landing',
       'oneToOne',
       'admin::user'
     > &
@@ -864,6 +862,38 @@ export interface ApiHomeStatisticHomeStatistic extends Schema.CollectionType {
   };
 }
 
+export interface ApiLandingLanding extends Schema.CollectionType {
+  collectionName: 'landings';
+  info: {
+    singularName: 'landing';
+    pluralName: 'landings';
+    displayName: 'landing';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    text: Attribute.String & Attribute.Required;
+    description: Attribute.Text;
+    img: Attribute.Media;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::landing.landing',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::landing.landing',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiPreviousWorkPreviousWork extends Schema.CollectionType {
   collectionName: 'previous_works';
   info: {
@@ -877,7 +907,7 @@ export interface ApiPreviousWorkPreviousWork extends Schema.CollectionType {
   };
   attributes: {
     titleWork: Attribute.String;
-    imgWork: Attribute.Media;
+    imgWork: Attribute.Media & Attribute.Required;
     services: Attribute.Relation<
       'api::previous-work.previous-work',
       'manyToMany',
@@ -918,8 +948,8 @@ export interface ApiServicesServices extends Schema.CollectionType {
     adBannar: Attribute.String;
     WhatDoWeOffer1: Attribute.Text;
     WhatDoWeOffer2: Attribute.Text;
-    WhatDoWeOffer3: Attribute.String;
-    WhatDoWeOffer4: Attribute.String;
+    WhatDoWeOffer3: Attribute.Text;
+    WhatDoWeOffer4: Attribute.Text;
     WhatDoWeOffer5: Attribute.Text;
     previous_works: Attribute.Relation<
       'api::services.services',
@@ -961,6 +991,7 @@ export interface ApiSocialContactSocialContact extends Schema.CollectionType {
     phone_number: Attribute.BigInteger;
     linkedin_link: Attribute.String;
     email: Attribute.Email;
+    WhatsApp_number: Attribute.BigInteger;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1011,6 +1042,36 @@ export interface ApiTestimonialTestimonial extends Schema.CollectionType {
   };
 }
 
+export interface ApiWhyUsWhyUs extends Schema.CollectionType {
+  collectionName: 'why_uses';
+  info: {
+    singularName: 'why-us';
+    pluralName: 'why-uses';
+    displayName: 'Why us';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    whyUs_text: Attribute.Text;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::why-us.why-us',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::why-us.why-us',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -1029,13 +1090,15 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'api::about.about': ApiAboutAbout;
       'api::connect-us-team.connect-us-team': ApiConnectUsTeamConnectUsTeam;
-      'api::home-landing.home-landing': ApiHomeLandingHomeLanding;
       'api::home-statistic.home-statistic': ApiHomeStatisticHomeStatistic;
+      'api::landing.landing': ApiLandingLanding;
       'api::previous-work.previous-work': ApiPreviousWorkPreviousWork;
       'api::services.services': ApiServicesServices;
       'api::social-contact.social-contact': ApiSocialContactSocialContact;
       'api::testimonial.testimonial': ApiTestimonialTestimonial;
+      'api::why-us.why-us': ApiWhyUsWhyUs;
     }
   }
 }

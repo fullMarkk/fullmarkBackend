@@ -26,6 +26,9 @@
     },
     "email": {
       "type": "email"
+    },
+    "WhatsApp_number": {
+      "type": "biginteger"
     }
   }
 }
