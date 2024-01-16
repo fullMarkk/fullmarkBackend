@@ -1,11 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "social_contacts",
+  "collectionName": "contact_infos",
   "info": {
-    "singularName": "social-contact",
-    "pluralName": "social-contacts",
-    "displayName": "social_contact",
-    "description": ""
+    "singularName": "contact-info",
+    "pluralName": "contact-infos",
+    "displayName": "Contact info"
   },
   "options": {
     "draftAndPublish": true
@@ -18,17 +17,17 @@
     "x_link": {
       "type": "string"
     },
-    "phone_number": {
-      "type": "biginteger"
-    },
     "linkedin_link": {
       "type": "string"
     },
-    "email": {
-      "type": "email"
+    "phone_number": {
+      "type": "biginteger"
     },
     "WhatsApp_number": {
       "type": "biginteger"
+    },
+    "email": {
+      "type": "email"
     }
   }
 }

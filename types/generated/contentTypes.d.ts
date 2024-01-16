@@ -831,6 +831,41 @@ export interface ApiConnectUsTeamConnectUsTeam extends Schema.CollectionType {
   };
 }
 
+export interface ApiContactInfoContactInfo extends Schema.CollectionType {
+  collectionName: 'contact_infos';
+  info: {
+    singularName: 'contact-info';
+    pluralName: 'contact-infos';
+    displayName: 'Contact info';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    facebook_link: Attribute.String;
+    x_link: Attribute.String;
+    linkedin_link: Attribute.String;
+    phone_number: Attribute.BigInteger;
+    WhatsApp_number: Attribute.BigInteger;
+    email: Attribute.Email;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::contact-info.contact-info',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::contact-info.contact-info',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiHomeStatisticHomeStatistic extends Schema.CollectionType {
   collectionName: 'home_statistics';
   info: {
@@ -974,42 +1009,6 @@ export interface ApiServicesServices extends Schema.CollectionType {
   };
 }
 
-export interface ApiSocialContactSocialContact extends Schema.CollectionType {
-  collectionName: 'social_contacts';
-  info: {
-    singularName: 'social-contact';
-    pluralName: 'social-contacts';
-    displayName: 'social_contact';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    facebook_link: Attribute.String;
-    x_link: Attribute.String;
-    phone_number: Attribute.BigInteger;
-    linkedin_link: Attribute.String;
-    email: Attribute.Email;
-    WhatsApp_number: Attribute.BigInteger;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::social-contact.social-contact',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::social-contact.social-contact',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface ApiTestimonialTestimonial extends Schema.CollectionType {
   collectionName: 'testimonials';
   info: {
@@ -1092,11 +1091,11 @@ declare module '@strapi/types' {
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::about.about': ApiAboutAbout;
       'api::connect-us-team.connect-us-team': ApiConnectUsTeamConnectUsTeam;
+      'api::contact-info.contact-info': ApiContactInfoContactInfo;
       'api::home-statistic.home-statistic': ApiHomeStatisticHomeStatistic;
       'api::landing.landing': ApiLandingLanding;
       'api::previous-work.previous-work': ApiPreviousWorkPreviousWork;
       'api::services.services': ApiServicesServices;
-      'api::social-contact.social-contact': ApiSocialContactSocialContact;
       'api::testimonial.testimonial': ApiTestimonialTestimonial;
       'api::why-us.why-us': ApiWhyUsWhyUs;
     }
