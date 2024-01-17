@@ -1015,6 +1015,7 @@ export interface ApiTestimonialTestimonial extends Schema.CollectionType {
     singularName: 'testimonial';
     pluralName: 'testimonials';
     displayName: 'Testimonial';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1023,6 +1024,7 @@ export interface ApiTestimonialTestimonial extends Schema.CollectionType {
     fullName: Attribute.String;
     city: Attribute.String;
     comment: Attribute.Text;
+    img: Attribute.Media;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
