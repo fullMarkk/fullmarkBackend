@@ -948,6 +948,7 @@ export interface ApiPreviousWorkPreviousWork extends Schema.CollectionType {
       'manyToMany',
       'api::services.services'
     >;
+    work_url: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

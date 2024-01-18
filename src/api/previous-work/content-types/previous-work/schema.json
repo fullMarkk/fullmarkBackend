@@ -31,6 +31,9 @@
       "relation": "manyToMany",
       "target": "api::services.services",
       "inversedBy": "previous_works"
+    },
+    "work_url": {
+      "type": "string"
     }
   }
 }
