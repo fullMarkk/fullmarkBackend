@@ -34,6 +34,10 @@
     },
     "work_url": {
       "type": "string"
+    },
+    "private_work_url": {
+      "type": "string",
+      "private": true
     }
   }
 }

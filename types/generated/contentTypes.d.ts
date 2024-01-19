@@ -799,6 +799,44 @@ export interface ApiAboutAbout extends Schema.CollectionType {
   };
 }
 
+export interface ApiClientClient extends Schema.CollectionType {
+  collectionName: 'clients';
+  info: {
+    singularName: 'client';
+    pluralName: 'clients';
+    displayName: 'Client';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    number_phone: Attribute.BigInteger;
+    note: Attribute.Text;
+    email: Attribute.Email;
+    previous_works_with_client: Attribute.Relation<
+      'api::client.client',
+      'oneToMany',
+      'api::previous-work.previous-work'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::client.client',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::client.client',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiConnectUsTeamConnectUsTeam extends Schema.CollectionType {
   collectionName: 'connect_us_teams';
   info: {
@@ -949,6 +987,7 @@ export interface ApiPreviousWorkPreviousWork extends Schema.CollectionType {
       'api::services.services'
     >;
     work_url: Attribute.String;
+    private_work_url: Attribute.String & Attribute.Private;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1093,6 +1132,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::about.about': ApiAboutAbout;
+      'api::client.client': ApiClientClient;
       'api::connect-us-team.connect-us-team': ApiConnectUsTeamConnectUsTeam;
       'api::contact-info.contact-info': ApiContactInfoContactInfo;
       'api::home-statistic.home-statistic': ApiHomeStatisticHomeStatistic;

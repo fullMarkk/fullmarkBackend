@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "clients",
+  "info": {
+    "singularName": "client",
+    "pluralName": "clients",
+    "displayName": "Client"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "number_phone": {
+      "type": "biginteger"
+    },
+    "note": {
+      "type": "text"
+    },
+    "email": {
+      "type": "email"
+    },
+    "previous_works_with_client": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::previous-work.previous-work"
+    }
+  }
+}
